@@ -1,11 +1,14 @@
 import express from 'express'
-const app = express();
+//const app = express();
 //const express = require('expres')
 import db from './connectMongodbServerToNodejs.js';
+const app = express();
+import dotenv from 'dotenv';
+dotenv.config();
 
 //import Person from './models/Person.js';
 import MenuItem from './models/MenuItem.js';
-import { error } from 'console';
+
 
 // Built-in body parser (modern way).
 
@@ -13,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true
 }));
 
-
+const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
   res.send('Hello Welcome to my hotel.. How can i help you?');
@@ -50,7 +53,10 @@ import menuItemRoutes from './routes/menuItemRoutes.js';
 app.use('/person', personRoutes);
 app.use('/menuItem', menuItemRoutes);
 
-app.listen(3000, () => {
-  console.log(('Server is running on http://localhost:3000'));
+
+
+app.listen(PORT, () => {
+ // console.log(('Server is running on http://localhost:3000'));
+ console.log('Listening on port 3000');
   
 });
