@@ -3,11 +3,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Define the MongoDB connection URL -> This is the local URL
-//const mongoURL =  'mongodb://127.0.0.1:27017/hotels' //'mongodb://localhost:127.0.0.1:27017/hotels' // Replace 'mydatabase' with your database name.
+const mongoURL =  process.env.MONGODB_URL_LOCAL   //'mongodb://127.0.0.1:27017/hotels' //'mongodb://localhost:127.0.0.1:27017/hotels' // Replace 'mydatabase' with your database name.
 
 // This is the MongoDB Atlas URL.
 //const mongoURL = 'mongodb+srv://hellokaleem:Qwerty1235@cluster0.ragitde.mongodb.net/'
-const mongoURL = process.env.MONGODB_URL;
+//const mongoURL = process.env.MONGODB_URL;
 
 
 // Setup MongoDB connection
